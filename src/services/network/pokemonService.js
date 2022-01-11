@@ -11,6 +11,22 @@ const pokemonService = {
       callback(result.data.results);
     });
   },
+  getDetails(url, callback) {
+    axios({
+      url: url,
+      method: "get",
+    }).then((result) => {
+      callback(result.data);
+    });
+  },
+  getSpecies(url, callback) {
+    axios({
+      url: url,
+      method: "get",
+    }).then((result) => {
+      callback(result.data);
+    });
+  },
 };
 
 export default pokemonService;

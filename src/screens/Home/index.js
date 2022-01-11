@@ -8,7 +8,7 @@ import Card from "../../components/Card";
 
 import styles from "./styles";
 
-const Home = () => {
+const Home = ({ navigation }) => {
   const [pokemonList, setPokemonList] = useState([]);
 
   useEffect(() => {
@@ -16,6 +16,11 @@ const Home = () => {
       setPokemonList(data);
     });
   }, []);
+
+  const goToDetails = (url) =>
+    navigation.navigate("Details", {
+      url,
+    });
 
   return (
     <View style={{ flex: 1 }}>
@@ -27,9 +32,20 @@ const Home = () => {
         style={{ flexGrow: 1 }}
       >
         <View style={styles.list}>
-          {pokemonList.map((item, index) => {
-            return <Card name={item.name} url={item.url} />;
-          })}
+          {pokemonList.length
+            ? pokemonList.map((item, index) => {
+                return (
+                  <Card
+                    key={index}
+                    name={item.name}
+                    url={item.url}
+                    onPressButton={() => {
+                      goToDetails(item.url);
+                    }}
+                  />
+                );
+              })
+            : null}
         </View>
       </ScrollView>
     </View>

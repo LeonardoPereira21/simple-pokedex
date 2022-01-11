@@ -1,9 +1,13 @@
 import React from "react";
 
-import { StyleSheet, Text, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
 
-import Home from "./src/screens/Home";
+import MainStack from "./src/services/routes/MainStack";
 
-export default function App() {
-  return <Home />;
-}
+export default () => {
+  return (
+    <NavigationContainer>
+      <MainStack />
+    </NavigationContainer>
+  );
+};
