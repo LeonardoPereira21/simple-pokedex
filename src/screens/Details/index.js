@@ -9,27 +9,31 @@ const Details = ({ route }) => {
   const [image, setImage] = useState(null);
   const [name, setName] = useState(null);
   const [order, setOrder] = useState(null);
-
   const [abilities, setAbilities] = useState(null);
   const [species, setSpecies] = useState(null);
+  const [eggGroups, setEggGroups] = useState(null);
   const [types, setTypes] = useState(null);
 
   useEffect(() => {
-    const params = route.params.url;
+    const detailsUrl = route.params.url;
 
-    pokemonService.getDetails(params, (data) => {
+    pokemonService.getDetails(detailsUrl, (data) => {
       setName(data.name);
       setOrder(data.order);
       setImage(data.sprites.other["official-artwork"]["front_default"]);
       setAbilities(data.abilities);
       setTypes(data.types);
-      const species = data.species.url;
-
-      pokemonService.getSpecies(species, (data) => {
-        setSpecies(data.egg_groups);
-      });
+      setSpecies(data.species.url);
     });
   }, []);
+
+  useEffect(() => {
+    if (species) {
+      pokemonService.getSpecies(species, (data) => {
+        setEggGroups(data.egg_groups);
+      });
+    }
+  }, [species]);
 
   return (
     <Container pageTitle={"Details"}>
@@ -46,14 +50,13 @@ const Details = ({ route }) => {
         <Text>Name: {name}</Text>
         <Text>
           Habilidades:{" "}
-          {abilities &&
-            abilities.map((item, index) => item.ability.name + ", ")}
+          {abilities && abilities.map((item) => item.ability.name).join(", ")}
         </Text>
         <Text>
-          Tipos: {types && types.map((item, index) => item.type.name + ", ")}
+          Tipos: {types && types.map((item) => item.type.name).join(", ")}
         </Text>
         <Text>
-          Espécies: {species && species.map((item) => item.name + ", ")}
+          Espécies: {eggGroups && eggGroups.map((item) => item.name).join(", ")}
         </Text>
       </View>
     </Container>

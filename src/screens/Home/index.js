@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { View, ScrollView } from "react-native";
+import { View } from "react-native";
 
 import pokemonService from "../../services/network/pokemonService";
 
-import Header from "../../components/Header";
 import Card from "../../components/Card";
 import Button from "../../components/Button";
+import Container from "../../components/Container";
 
 import styles from "./styles";
-import Container from "../../components/Container";
 
 const FIRST_PAGE = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=21";
 
@@ -18,36 +17,21 @@ const Home = ({ navigation }) => {
   const [previousPage, setPreviousPage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
+  const updatePage = (url) => {
+    setIsLoading(true);
+
+    pokemonService.getList(url, (data) => {
+      setIsLoading(false);
+
+      setPokemonList(data.results);
+      setPreviousPage(data.previous);
+      setNextPage(data.next);
+    });
+  };
+
   useEffect(() => {
-    setIsLoading(true);
-    pokemonService.getList(FIRST_PAGE, (data) => {
-      setIsLoading(false);
-      setPageDetails(data.results, data.previous, data.next);
-    });
+    updatePage(FIRST_PAGE);
   }, []);
-
-  const getNextPage = () => {
-    setIsLoading(true);
-    pokemonService.getList(nextPage, (data) => {
-      setIsLoading(false);
-      setPageDetails(data.results, data.previous, data.next);
-    });
-  };
-
-  const getPreviousPage = () => {
-    setIsLoading(true);
-
-    pokemonService.getList(previousPage, (data) => {
-      setIsLoading(false);
-      setPageDetails(data.results, data.previous, data.next);
-    });
-  };
-
-  const setPageDetails = (results, previous, next) => {
-    setPokemonList(results);
-    setPreviousPage(previous);
-    setNextPage(next);
-  };
 
   const goToDetails = (url) =>
     navigation.navigate("Details", {
@@ -78,14 +62,14 @@ const Home = ({ navigation }) => {
           text={"Página anterior"}
           disabled={Boolean(!previousPage)}
           loading={isLoading}
-          onPress={getPreviousPage}
+          onPress={() => updatePage(previousPage)}
         />
 
         <Button
           text={"Próxima página"}
           loading={isLoading}
           disabled={Boolean(!nextPage)}
-          onPress={getNextPage}
+          onPress={() => updatePage(nextPage)}
         />
       </View>
     </Container>
