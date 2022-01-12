@@ -8,6 +8,7 @@ import Card from "../../components/Card";
 import Button from "../../components/Button";
 
 import styles from "./styles";
+import Container from "../../components/Container";
 
 const FIRST_PAGE = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=21";
 
@@ -54,48 +55,40 @@ const Home = ({ navigation }) => {
     });
 
   return (
-    <View style={{ flex: 1 }}>
-      <Header pageTitle={"Home"} />
+    <Container pageTitle={"Home"}>
+      <View style={styles.list}>
+        {pokemonList.length
+          ? pokemonList.map((item, index) => {
+              return (
+                <Card
+                  key={index}
+                  name={item.name}
+                  url={item.url}
+                  onPressButton={() => {
+                    goToDetails(item.url);
+                  }}
+                />
+              );
+            })
+          : null}
+      </View>
 
-      <ScrollView
-        scrollEnabled
-        keyboardShouldPersistTaps="handled"
-        style={{ flexGrow: 1 }}
-      >
-        <View style={styles.list}>
-          {pokemonList.length
-            ? pokemonList.map((item, index) => {
-                return (
-                  <Card
-                    key={index}
-                    name={item.name}
-                    url={item.url}
-                    onPressButton={() => {
-                      goToDetails(item.url);
-                    }}
-                  />
-                );
-              })
-            : null}
-        </View>
+      <View style={styles.pagination}>
+        <Button
+          text={"Página anterior"}
+          disabled={Boolean(!previousPage)}
+          loading={isLoading}
+          onPress={getPreviousPage}
+        />
 
-        <View style={styles.pagination}>
-          <Button
-            text={"Página anterior"}
-            disabled={Boolean(!previousPage)}
-            loading={isLoading}
-            onPress={getPreviousPage}
-          />
-
-          <Button
-            text={"Próxima página"}
-            loading={isLoading}
-            disabled={Boolean(!nextPage)}
-            onPress={getNextPage}
-          />
-        </View>
-      </ScrollView>
-    </View>
+        <Button
+          text={"Próxima página"}
+          loading={isLoading}
+          disabled={Boolean(!nextPage)}
+          onPress={getNextPage}
+        />
+      </View>
+    </Container>
   );
 };
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Text, View, ScrollView, Image } from "react-native";
+import { Text, View, Image } from "react-native";
 
-import Header from "../../components/Header";
+import Container from "../../components/Container";
 
 import pokemonService from "../../services/network/pokemonService";
 
@@ -32,39 +32,31 @@ const Details = ({ route }) => {
   }, []);
 
   return (
-    <View style={{ flex: 1 }}>
-      <Header pageTitle={"Details"} />
-
-      <ScrollView
-        scrollEnabled
-        keyboardShouldPersistTaps="handled"
-        style={{ flexGrow: 1 }}
-      >
-        <View>
-          {image ? (
-            <Image
-              style={{ width: 300, height: 300 }}
-              source={{
-                uri: image,
-              }}
-            />
-          ) : null}
-          <Text>#{order}</Text>
-          <Text>Name: {name}</Text>
-          <Text>
-            Habilidades:{" "}
-            {abilities &&
-              abilities.map((item, index) => item.ability.name + ", ")}
-          </Text>
-          <Text>
-            Tipos: {types && types.map((item, index) => item.type.name + ", ")}
-          </Text>
-          <Text>
-            Espécies: {species && species.map((item) => item.name + ", ")}
-          </Text>
-        </View>
-      </ScrollView>
-    </View>
+    <Container pageTitle={"Details"}>
+      <View>
+        {image ? (
+          <Image
+            style={{ width: 300, height: 300 }}
+            source={{
+              uri: image,
+            }}
+          />
+        ) : null}
+        <Text>#{order}</Text>
+        <Text>Name: {name}</Text>
+        <Text>
+          Habilidades:{" "}
+          {abilities &&
+            abilities.map((item, index) => item.ability.name + ", ")}
+        </Text>
+        <Text>
+          Tipos: {types && types.map((item, index) => item.type.name + ", ")}
+        </Text>
+        <Text>
+          Espécies: {species && species.map((item) => item.name + ", ")}
+        </Text>
+      </View>
+    </Container>
   );
 };
 
