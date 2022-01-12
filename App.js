@@ -2,12 +2,12 @@ import React from "react";
 
 import { NavigationContainer } from "@react-navigation/native";
 
-import MainStack from "./src/services/routes/MainStack";
+import Navigation from "./src/services/navigation";
 
 export default () => {
   return (
     <NavigationContainer>
-      <MainStack />
+      <Navigation />
     </NavigationContainer>
   );
 };

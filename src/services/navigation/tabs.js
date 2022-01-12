@@ -9,13 +9,15 @@ import iconPokedex from "../../assets/png/icon-pokedex.png";
 import Home from "../../screens/Home";
 import Captured from "../../screens/Captured";
 
+import { COLORS } from "../styles";
+
 const Tab = createBottomTabNavigator();
 
 export default () => (
   <Tab.Navigator
     screenOptions={{
       headerShown: false,
-      tabBarActiveBackgroundColor: "#ccc",
+      tabBarActiveBackgroundColor: COLORS.GRAY,
     }}
   >
     <Tab.Screen

@@ -1,16 +1,17 @@
 import { StyleSheet } from "react-native";
+import { SPACING } from "../../services/styles";
 
 const styles = StyleSheet.create({
   list: {
     flexDirection: "row",
     flexWrap: "wrap",
-    padding: 5,
+    padding: SPACING.xsmall,
   },
   pagination: {
     flexDirection: "row",
-    paddingTop: 10,
-    paddingHorizontal: 10,
-    paddingBottom: 20,
+    paddingTop: SPACING.small,
+    paddingHorizontal: SPACING.small,
+    paddingBottom: SPACING.medium,
     justifyContent: "space-between",
   },
 });

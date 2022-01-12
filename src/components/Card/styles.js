@@ -1,18 +1,19 @@
 import { StyleSheet } from "react-native";
+import { SPACING } from "../../services/styles";
 
 const styles = StyleSheet.create({
   container: {
     width: "33.3%",
-    padding: 5,
+    padding: SPACING.xsmall,
   },
   content: {
     borderWidth: 1,
     borderRadius: 5,
-    padding: 10,
+    padding: SPACING.small,
   },
   name: {
     textAlign: "center",
-    marginBottom: 5,
+    marginBottom: SPACING.xsmall,
     textTransform: "capitalize",
   },
 });
