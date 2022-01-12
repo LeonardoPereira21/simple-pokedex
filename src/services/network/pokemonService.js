@@ -1,14 +1,12 @@
 import axios from "axios";
 
-const BASE_API = "https://pokeapi.co/api/v2/";
-
 const pokemonService = {
-  getList(callback) {
+  getList(url, callback) {
     axios({
-      url: `${BASE_API}pokemon/`,
+      url: url,
       method: "get",
     }).then((result) => {
-      callback(result.data.results);
+      callback(result.data);
     });
   },
   getDetails(url, callback) {

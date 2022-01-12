@@ -1,4 +1,3 @@
-import { upperFirst } from "lodash";
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
@@ -15,14 +14,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginBottom: 5,
     textTransform: "capitalize",
-  },
-  button: {
-    backgroundColor: "#feca1b",
-    height: 35,
-    alignItems: "center",
-    justifyContent: "center",
-    borderRadius: 5,
-    paddingHorizontal: 10,
   },
 });
 
