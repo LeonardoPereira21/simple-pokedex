@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
   details: {
     justifyContent: "center",
     alignItems: "center",
+    paddingTop: SPACING.medium,
   },
   imageContainer: {
     marginVertical: SPACING.medium,

@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { View, Image } from "react-native";
 
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+
 import pokemonService from "../../services/network/pokemonService";
+import { addCaptured, removeCaptured } from "../../services/actions";
 
 import Container from "../../components/Container";
 import Checkbox from "../../components/Checkbox";
@@ -9,7 +13,13 @@ import Text from "../../components/Text";
 
 import styles from "./styles";
 
-const Details = ({ navigation, route }) => {
+const Details = ({
+  navigation,
+  route,
+  captured,
+  addCaptured,
+  removeCaptured,
+}) => {
   const [image, setImage] = useState(null);
   const [name, setName] = useState(null);
   const [order, setOrder] = useState(null);
@@ -17,6 +27,7 @@ const Details = ({ navigation, route }) => {
   const [species, setSpecies] = useState(null);
   const [eggGroups, setEggGroups] = useState(null);
   const [types, setTypes] = useState(null);
+  const [isDefaultChecked, setIsDefaultChecked] = useState(false);
 
   useEffect(() => {
     const detailsUrl = route.params.url;
@@ -28,6 +39,12 @@ const Details = ({ navigation, route }) => {
       setAbilities(data.abilities);
       setTypes(data.types);
       setSpecies(data.species.url);
+
+      const isCaptured = captured.list.filter(
+        (item) => item.order === data.order
+      );
+
+      setIsDefaultChecked(Boolean(isCaptured.length));
     });
   }, []);
 
@@ -82,12 +99,17 @@ const Details = ({ navigation, route }) => {
         <View>
           <Checkbox
             text={"capturado?"}
-            defaultChecked={false}
+            defaultChecked={isDefaultChecked}
             onToggle={(isCheked) => {
               if (isCheked) {
-                console.log("if");
+                addCaptured({
+                  order,
+                  image,
+                  name,
+                  url: route.params.url,
+                });
               } else {
-                console.log("else");
+                removeCaptured(order);
               }
             }}
           />
@@ -97,4 +119,18 @@ const Details = ({ navigation, route }) => {
   );
 };
 
-export default Details;
+const mapStateToProps = (state) => {
+  const { captured } = state;
+  return { captured };
+};
+
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(
+    {
+      addCaptured,
+      removeCaptured,
+    },
+    dispatch
+  );
+
+export default connect(mapStateToProps, mapDispatchToProps)(Details);

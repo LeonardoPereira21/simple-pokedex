@@ -1,0 +1,2 @@
+export const ADD_CAPTURED = "ADD_CAPTURED";
+export const REMOVE_CAPTURED = "REMOVE_CAPTURED";

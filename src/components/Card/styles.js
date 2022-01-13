@@ -11,10 +11,15 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     borderColor: COLORS.GRAY,
     padding: SPACING.small,
+    justifyContent: "center",
+    alignItems: "center",
   },
   name: {
-    textAlign: "center",
     marginBottom: SPACING.xsmall,
+  },
+  image: {
+    width: 35,
+    height: 35,
   },
 });
 

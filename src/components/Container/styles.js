@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
   scroll: {
     flexGrow: 1,
     backgroundColor: COLORS.WHITE,
-    padding: SPACING.small,
+    paddingHorizontal: SPACING.small,
   },
 });
 

@@ -2,10 +2,6 @@ import { StyleSheet } from "react-native";
 import { SPACING } from "../../services/styles";
 
 const styles = StyleSheet.create({
-  list: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-  },
   pagination: {
     flexDirection: "row",
     paddingTop: SPACING.small,
