@@ -5,6 +5,7 @@ import pokemonService from "../../services/network/pokemonService";
 
 import Card from "../../components/Card";
 import Button from "../../components/Button";
+import CardList from "../../components/CardList";
 import Container from "../../components/Container";
 
 import styles from "./styles";
@@ -40,7 +41,7 @@ const Home = ({ navigation }) => {
 
   return (
     <Container pageTitle={"home"}>
-      <View style={styles.list}>
+      <CardList>
         {pokemonList.length
           ? pokemonList.map((item, index) => {
               return (
@@ -55,7 +56,7 @@ const Home = ({ navigation }) => {
               );
             })
           : null}
-      </View>
+      </CardList>
 
       <View style={styles.pagination}>
         <Button
