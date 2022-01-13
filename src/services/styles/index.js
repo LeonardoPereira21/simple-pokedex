@@ -33,3 +33,8 @@ export const SPACING = Object.freeze({
   medium: 16,
   large: 20,
 });
+
+export const BORDER_RADIUS = Object.freeze({
+  small: 3,
+  medium: 5,
+});

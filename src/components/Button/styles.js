@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { COLORS, SPACING } from "../../services/styles";
+import { COLORS, SPACING, BORDER_RADIUS } from "../../services/styles";
 
 const styles = StyleSheet.create({
   default: {
@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     height: 35,
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 5,
+    borderRadius: BORDER_RADIUS.medium,
     paddingHorizontal: SPACING.medium,
   },
   disabled: {
