@@ -5,6 +5,26 @@ export const COLORS = Object.freeze({
   WHITE: "#FFFFFF",
   RED: "#EF5350",
   YELLOW: "#FECA1B",
+  BLUE: "#3861A8",
+});
+
+export const FONT_SIZES = Object.freeze({
+  small: 12,
+  default: 14,
+  large: 16,
+  xlarge: 24,
+});
+
+export const FONT_FAMILY = Object.freeze({
+  pokemon: {
+    hollow: "PokemonHollow",
+    solid: "PokemonSolid",
+  },
+  roboto: {
+    regular: "Roboto-Regular",
+    medium: "Roboto-Medium",
+    bold: "Roboto-Bold",
+  },
 });
 
 export const SPACING = Object.freeze({
