@@ -4,6 +4,7 @@ import { View, Image } from "react-native";
 import pokemonService from "../../services/network/pokemonService";
 
 import Container from "../../components/Container";
+import Checkbox from "../../components/Checkbox";
 import Text from "../../components/Text";
 
 import styles from "./styles";
@@ -77,6 +78,19 @@ const Details = ({ navigation, route }) => {
               {eggGroups && eggGroups.map((item) => item.name).join(", ")}
             </Text>
           </View>
+        </View>
+        <View>
+          <Checkbox
+            text={"capturado?"}
+            defaultChecked={false}
+            onToggle={(isCheked) => {
+              if (isCheked) {
+                console.log("if");
+              } else {
+                console.log("else");
+              }
+            }}
+          />
         </View>
       </View>
     </Container>
