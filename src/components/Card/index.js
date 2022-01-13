@@ -1,7 +1,8 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 
 import Button from "../Button";
+import Text from "../Text";
 
 import styles from "./styles";
 
@@ -10,7 +11,7 @@ const Card = ({ name, onPressButton }) => {
     <View style={styles.container}>
       <View style={styles.content}>
         <Text style={styles.name}>{name}</Text>
-        <Button text={"Detalhes"} onPress={onPressButton} />
+        <Button text={"detalhes"} onPress={onPressButton} />
       </View>
     </View>
   );

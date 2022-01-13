@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { View, Text } from "react-native";
+import React from "react";
+import { View } from "react-native";
+
+import Text from "../Text";
 
 import styles from "./styles";
 

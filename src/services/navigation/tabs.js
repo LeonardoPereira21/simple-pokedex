@@ -22,7 +22,7 @@ export default () => (
     }}
   >
     <Tab.Screen
-      name="Home"
+      name="home"
       component={Home}
       options={{
         tabBarIcon: () => (
@@ -32,7 +32,7 @@ export default () => (
     />
 
     <Tab.Screen
-      name="Captured"
+      name="captured"
       component={Captured}
       options={{
         tabBarIcon: () => (

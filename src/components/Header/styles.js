@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { COLORS } from "../../services/styles";
+import { COLORS, FONT_FAMILY, FONT_SIZES } from "../../services/styles";
 
 const styles = StyleSheet.create({
   container: {
@@ -10,6 +10,8 @@ const styles = StyleSheet.create({
   },
   title: {
     color: COLORS.WHITE,
+    fontFamily: FONT_FAMILY.pokemon.hollow,
+    fontSize: FONT_SIZES.xlarge,
   },
 });
 

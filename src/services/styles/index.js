@@ -12,7 +12,7 @@ export const FONT_SIZES = Object.freeze({
   small: 12,
   default: 14,
   large: 16,
-  xlarge: 24,
+  xlarge: 18,
 });
 
 export const FONT_FAMILY = Object.freeze({

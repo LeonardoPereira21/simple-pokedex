@@ -1,5 +1,7 @@
 import React from "react";
-import { Text, TouchableOpacity } from "react-native";
+import { TouchableOpacity } from "react-native";
+
+import Text from "../Text";
 
 import styles from "./styles";
 
@@ -10,7 +12,7 @@ const Button = ({ text, disabled, loading, onPress }) => {
       onPress={onPress}
       disabled={disabled || loading}
     >
-      <Text>{text}</Text>
+      {text ? <Text>{text}</Text> : null}
     </TouchableOpacity>
   );
 };

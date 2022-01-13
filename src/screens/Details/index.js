@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Text, View, Image } from "react-native";
+import { View, Image } from "react-native";
 
 import pokemonService from "../../services/network/pokemonService";
+
 import Container from "../../components/Container";
+import Text from "../../components/Text";
 
 import styles from "./styles";
 
@@ -37,7 +39,7 @@ const Details = ({ route }) => {
   }, [species]);
 
   return (
-    <Container pageTitle={"Details"}>
+    <Container pageTitle={"detalhes"}>
       <View style={styles.details}>
         <View style={styles.head}>
           <Text style={styles.order}># {order} - </Text>
@@ -54,6 +56,7 @@ const Details = ({ route }) => {
             />
           </View>
         ) : null}
+
         <View style={styles.table}>
           <View style={styles.line}>
             <Text>habilidades: </Text>

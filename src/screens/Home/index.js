@@ -39,7 +39,7 @@ const Home = ({ navigation }) => {
     });
 
   return (
-    <Container pageTitle={"Home"}>
+    <Container pageTitle={"home"}>
       <View style={styles.list}>
         {pokemonList.length
           ? pokemonList.map((item, index) => {
@@ -59,14 +59,14 @@ const Home = ({ navigation }) => {
 
       <View style={styles.pagination}>
         <Button
-          text={"Página anterior"}
+          text={"página anterior"}
           disabled={Boolean(!previousPage)}
           loading={isLoading}
           onPress={() => updatePage(previousPage)}
         />
 
         <Button
-          text={"Próxima página"}
+          text={"próxima página"}
           loading={isLoading}
           disabled={Boolean(!nextPage)}
           onPress={() => updatePage(nextPage)}

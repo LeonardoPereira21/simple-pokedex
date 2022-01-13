@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { Text, View, ScrollView, Image } from "react-native";
+import React from "react";
 
 import Container from "../../components/Container";
+import Text from "../../components/Text";
 
 const Captured = () => {
   return (
-    <Container pageTitle={"Captured"}>
-      <Text>Captured</Text>
+    <Container pageTitle={"capturados"}>
+      <Text>capturados</Text>
     </Container>
   );
 };
