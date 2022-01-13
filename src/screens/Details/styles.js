@@ -25,11 +25,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   order: {
-    fontFamily: FONT_FAMILY.pokemon.solid,
     fontSize: FONT_SIZES.xlarge,
   },
   name: {
-    fontFamily: FONT_FAMILY.pokemon.solid,
     fontSize: FONT_SIZES.xlarge,
     textTransform: "capitalize",
   },

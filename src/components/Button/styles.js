@@ -8,9 +8,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 5,
-    paddingHorizontal: SPACING.small,
-    width: "100%",
-    maxWidth: 190,
+    paddingHorizontal: SPACING.medium,
   },
   disabled: {
     backgroundColor: COLORS.GRAY,

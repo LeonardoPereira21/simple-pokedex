@@ -32,7 +32,7 @@ export default () => (
     />
 
     <Tab.Screen
-      name="captured"
+      name="capturados"
       component={Captured}
       options={{
         tabBarIcon: () => (
