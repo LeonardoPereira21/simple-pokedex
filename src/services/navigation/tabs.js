@@ -18,6 +18,7 @@ export default () => (
     screenOptions={{
       headerShown: false,
       tabBarActiveBackgroundColor: COLORS.GRAY,
+      tabBarActiveTintColor: COLORS.RED,
     }}
   >
     <Tab.Screen

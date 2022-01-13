@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Text, View, Image } from "react-native";
 
+import pokemonService from "../../services/network/pokemonService";
 import Container from "../../components/Container";
 
-import pokemonService from "../../services/network/pokemonService";
+import styles from "./styles";
 
 const Details = ({ route }) => {
   const [image, setImage] = useState(null);
@@ -37,27 +38,43 @@ const Details = ({ route }) => {
 
   return (
     <Container pageTitle={"Details"}>
-      <View>
+      <View style={styles.details}>
+        <View style={styles.head}>
+          <Text style={styles.order}># {order} - </Text>
+          <Text style={styles.name}>{name}</Text>
+        </View>
+
         {image ? (
-          <Image
-            style={{ width: 300, height: 300 }}
-            source={{
-              uri: image,
-            }}
-          />
+          <View style={styles.imageContainer}>
+            <Image
+              style={styles.image}
+              source={{
+                uri: image,
+              }}
+            />
+          </View>
         ) : null}
-        <Text>#{order}</Text>
-        <Text>Name: {name}</Text>
-        <Text>
-          Habilidades:{" "}
-          {abilities && abilities.map((item) => item.ability.name).join(", ")}
-        </Text>
-        <Text>
-          Tipos: {types && types.map((item) => item.type.name).join(", ")}
-        </Text>
-        <Text>
-          Espécies: {eggGroups && eggGroups.map((item) => item.name).join(", ")}
-        </Text>
+        <View style={styles.table}>
+          <View style={styles.line}>
+            <Text>habilidades: </Text>
+            <Text>
+              {abilities &&
+                abilities.map((item) => item.ability.name).join(", ")}
+            </Text>
+          </View>
+          <View style={styles.line}>
+            <Text>tipos: </Text>
+            <Text>
+              {types && types.map((item) => item.type.name).join(", ")}
+            </Text>
+          </View>
+          <View style={styles.line}>
+            <Text>espécies: </Text>
+            <Text>
+              {eggGroups && eggGroups.map((item) => item.name).join(", ")}
+            </Text>
+          </View>
+        </View>
       </View>
     </Container>
   );

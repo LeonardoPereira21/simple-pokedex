@@ -5,12 +5,11 @@ const styles = StyleSheet.create({
   list: {
     flexDirection: "row",
     flexWrap: "wrap",
-    padding: SPACING.xsmall,
   },
   pagination: {
     flexDirection: "row",
     paddingTop: SPACING.small,
-    paddingHorizontal: SPACING.small,
+    paddingHorizontal: SPACING.xsmall,
     paddingBottom: SPACING.medium,
     justifyContent: "space-between",
   },

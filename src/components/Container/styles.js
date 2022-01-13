@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { COLORS } from "../../services/styles";
+import { COLORS, SPACING } from "../../services/styles";
 
 const styles = StyleSheet.create({
   container: {
@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
   scroll: {
     flexGrow: 1,
     backgroundColor: COLORS.WHITE,
+    padding: SPACING.small,
   },
 });
 
