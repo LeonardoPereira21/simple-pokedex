@@ -5,10 +5,10 @@ import Header from "../../components/Header";
 
 import styles from "./styles";
 
-const Container = ({ pageTitle, children }) => {
+const Container = ({ pageTitle, children, goBack }) => {
   return (
     <View style={styles.container}>
-      <Header pageTitle={pageTitle} />
+      <Header pageTitle={pageTitle} goBack={goBack} />
 
       <ScrollView
         scrollEnabled

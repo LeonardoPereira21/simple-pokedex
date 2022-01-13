@@ -31,4 +31,5 @@ export const SPACING = Object.freeze({
   xsmall: 4,
   small: 8,
   medium: 16,
+  large: 20,
 });

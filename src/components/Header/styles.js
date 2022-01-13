@@ -1,5 +1,10 @@
 import { StyleSheet } from "react-native";
-import { COLORS, FONT_FAMILY, FONT_SIZES } from "../../services/styles";
+import {
+  COLORS,
+  FONT_FAMILY,
+  FONT_SIZES,
+  SPACING,
+} from "../../services/styles";
 
 const styles = StyleSheet.create({
   container: {
@@ -13,6 +18,12 @@ const styles = StyleSheet.create({
     fontFamily: FONT_FAMILY.pokemon.hollow,
     fontSize: FONT_SIZES.xlarge,
   },
+  button: {
+    position: "absolute",
+    top: SPACING.large,
+    left: SPACING.medium,
+  },
+  icon: { width: 15, height: 15 },
 });
 
 export default styles;

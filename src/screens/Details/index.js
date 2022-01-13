@@ -8,7 +8,7 @@ import Text from "../../components/Text";
 
 import styles from "./styles";
 
-const Details = ({ route }) => {
+const Details = ({ navigation, route }) => {
   const [image, setImage] = useState(null);
   const [name, setName] = useState(null);
   const [order, setOrder] = useState(null);
@@ -39,7 +39,7 @@ const Details = ({ route }) => {
   }, [species]);
 
   return (
-    <Container pageTitle={"detalhes"}>
+    <Container pageTitle={"detalhes"} goBack={navigation.goBack}>
       <View style={styles.details}>
         <View style={styles.head}>
           <Text style={styles.order}># {order} - </Text>
