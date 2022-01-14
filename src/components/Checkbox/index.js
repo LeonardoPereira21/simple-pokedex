@@ -11,9 +11,8 @@ const Checkbox = ({ text, onToggle, defaultChecked }) => {
   const [isChecked, setChecked] = useState(defaultChecked);
 
   const toggleChecked = useCallback(() => {
-    const newIsChecked = !isChecked;
-    setChecked(newIsChecked);
-    onToggle(newIsChecked);
+    setChecked(!isChecked);
+    onToggle(!isChecked);
   }, [isChecked, onToggle]);
 
   useEffect(() => {
@@ -24,7 +23,7 @@ const Checkbox = ({ text, onToggle, defaultChecked }) => {
     <View style={styles.container}>
       <TouchableOpacity
         style={[styles.button, isChecked ? styles.checked : {}]}
-        onPress={() => toggleChecked()}
+        onPress={toggleChecked}
       >
         <Image style={styles.icon} source={iconCheck} />
       </TouchableOpacity>

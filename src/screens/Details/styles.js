@@ -1,10 +1,5 @@
 import { StyleSheet } from "react-native";
-import {
-  COLORS,
-  FONT_FAMILY,
-  FONT_SIZES,
-  SPACING,
-} from "../../services/styles";
+import { COLORS, FONT_SIZES, SPACING } from "../../services/styles";
 
 const styles = StyleSheet.create({
   details: {
