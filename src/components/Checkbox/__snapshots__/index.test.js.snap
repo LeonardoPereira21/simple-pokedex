@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox should render correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+    }
+  }
+>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "borderColor": "#EF5350",
+        "borderRadius": 3,
+        "borderWidth": 2,
+        "height": 20,
+        "justifyContent": "center",
+        "marginRight": 8,
+        "opacity": 1,
+        "width": 20,
+      }
+    }
+    testID="checkbox"
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../src/assets/png/icon-check.png",
+        }
+      }
+      style={
+        Object {
+          "height": 12,
+          "width": 12,
+        }
+      }
+    />
+  </View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#333333",
+          "fontFamily": "Roboto-Regular",
+          "fontSize": 14,
+        },
+        undefined,
+      ]
+    }
+  >
+    test
+  </Text>
+</View>
+`;

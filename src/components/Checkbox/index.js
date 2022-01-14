@@ -22,6 +22,7 @@ const Checkbox = ({ text, onToggle, defaultChecked }) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity
+        testID="checkbox"
         style={[styles.button, isChecked ? styles.checked : {}]}
         onPress={toggleChecked}
       >

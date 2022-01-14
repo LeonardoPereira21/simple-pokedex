@@ -11,7 +11,11 @@ const Header = ({ pageTitle, goBack }) => {
   return (
     <View style={styles.container}>
       {goBack ? (
-        <TouchableOpacity style={styles.button} onPress={goBack}>
+        <TouchableOpacity
+          testID="go-back-button"
+          style={styles.button}
+          onPress={goBack}
+        >
           <Image style={styles.icon} source={iconLeftArrow} />
         </TouchableOpacity>
       ) : null}

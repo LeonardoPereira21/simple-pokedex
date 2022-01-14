@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should render correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#EF5350",
+      "height": 80,
+      "justifyContent": "center",
+      "paddingTop": 20,
+    }
+  }
+>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "left": 16,
+        "opacity": 1,
+        "position": "absolute",
+        "top": 40,
+      }
+    }
+    testID="go-back-button"
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../src/assets/png/icon-left-arrow.png",
+        }
+      }
+      style={
+        Object {
+          "height": 15,
+          "width": 15,
+        }
+      }
+    />
+  </View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#333333",
+          "fontFamily": "Roboto-Regular",
+          "fontSize": 14,
+        },
+        Object {
+          "color": "#FFFFFF",
+          "fontSize": 18,
+        },
+      ]
+    }
+  >
+    Page
+  </Text>
+</View>
+`;

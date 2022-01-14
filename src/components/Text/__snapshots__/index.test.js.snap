@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text should apply styles correctly 1`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "#333333",
+        "fontFamily": "Roboto-Regular",
+        "fontSize": 14,
+      },
+      Object {
+        "color": "red",
+      },
+    ]
+  }
+>
+  Hello
+</Text>
+`;
+
+exports[`Text should render correctly 1`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "#333333",
+        "fontFamily": "Roboto-Regular",
+        "fontSize": 14,
+      },
+      undefined,
+    ]
+  }
+>
+  Hello
+</Text>
+`;
