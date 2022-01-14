@@ -1,11 +1,25 @@
 {
+  "name": "My Pokédex",
+  "displayName": "My Pokédex",
   "expo": {
-    "name": "simple-pokedex",
-    "slug": "simple-pokedex",
+    "name": "My Pokédex",
+    "slug": "my-pokedex",
     "version": "1.0.0",
     "assetBundlePatterns": [
-      "**/*"
-    ]
-  },
-  "name": "simple-pokedex"
+      "**/**/**/*"
+    ],
+    "android": {
+      "icon": "./src/assets/png/app-icon.png",
+      "adaptiveIcon": {
+        "foregroundImage": "./src/assets/png/app-icon.png",
+        "backgroundColor": "#3861A8"
+      },
+      "package": "com.pokemon.pokedex"
+    },
+    "splash": {
+      "image": "./src/assets/png/app-splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#3861A8"
+    }
+  }
 }
