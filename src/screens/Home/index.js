@@ -8,10 +8,11 @@ import Button from "../../components/Button";
 import CardList from "../../components/CardList";
 import Container from "../../components/Container";
 import SearchInput from "../../components/SearchInput";
+import Loading from "../../components/Loading";
 
 import styles from "./styles";
 
-const FIRST_PAGE = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=21";
+const FIRST_PAGE = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=42";
 
 const Home = ({ navigation }) => {
   const [searchText, setSearchText] = useState("");
@@ -68,10 +69,10 @@ const Home = ({ navigation }) => {
         />
       </View>
 
-      <CardList>
-        {pokemonList.length
-          ? pokemonList.map((item, index) => {
-              return (
+      {!isLoading ? (
+        <CardList>
+          {pokemonList.length
+            ? pokemonList.map((item, index) => (
                 <Card
                   key={index}
                   name={item.name}
@@ -80,10 +81,12 @@ const Home = ({ navigation }) => {
                     goToDetails(item.url);
                   }}
                 />
-              );
-            })
-          : null}
-      </CardList>
+              ))
+            : null}
+        </CardList>
+      ) : (
+        <Loading />
+      )}
 
       <View style={styles.pagination}>
         <Button

@@ -36,6 +36,9 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     marginBottom: SPACING.small,
   },
+  bottom: {
+    marginVertical: SPACING.large,
+  },
 });
 
 export default styles;
