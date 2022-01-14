@@ -37,7 +37,6 @@ const Details = ({
 
     setIsLoading(true);
     pokeApi.get(detailsUrl, (data) => {
-      console.log(data.name);
       setName(data.name);
       setOrder(data.order);
       setImage(data.sprites.other["official-artwork"]["front_default"]);
