@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const pokemonService = {
+const pokeApi = {
   get(url, callback) {
     axios.get(url).then((result) => {
       callback(result.data);
@@ -8,4 +8,4 @@ const pokemonService = {
   },
 };
 
-export default pokemonService;
+export default pokeApi;

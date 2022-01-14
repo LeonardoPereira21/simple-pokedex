@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { View } from "react-native";
 
-import pokemonService from "../../services/network/pokemonService";
+import pokeApi from "../../services/network/pokeApi";
 
 import Card from "../../components/Card";
 import Button from "../../components/Button";
@@ -30,7 +30,7 @@ const Home = ({ navigation }) => {
     setIsLoading(true);
     setSearchText("");
 
-    pokemonService.get(url, (data) => {
+    pokeApi.get(url, (data) => {
       setIsLoading(false);
       setCurrentPage(data.results);
       setPokemonList(data.results);

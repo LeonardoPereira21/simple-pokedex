@@ -4,7 +4,7 @@ import { View, Image } from "react-native";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-import pokemonService from "../../services/network/pokemonService";
+import pokeApi from "../../services/network/pokeApi";
 import { addCaptured, removeCaptured } from "../../services/actions";
 
 import Container from "../../components/Container";
@@ -12,6 +12,7 @@ import Checkbox from "../../components/Checkbox";
 import Loading from "../../components/Loading";
 import Text from "../../components/Text";
 
+import { DETAILS } from "./__mocks__";
 import styles from "./styles";
 
 const Details = ({
@@ -35,7 +36,8 @@ const Details = ({
     const detailsUrl = route.params.url;
 
     setIsLoading(true);
-    pokemonService.get(detailsUrl, (data) => {
+    pokeApi.get(detailsUrl, (data) => {
+      console.log(data.name);
       setName(data.name);
       setOrder(data.order);
       setImage(data.sprites.other["official-artwork"]["front_default"]);
@@ -53,8 +55,8 @@ const Details = ({
 
   useEffect(() => {
     if (species) {
-      pokemonService.get(species, (data) => {
-        setEggGroups(data.egg_groups);
+      pokeApi.get(species, (data) => {
+        setEggGroups(DETAILS.data.egg_groups);
         setIsLoading(false);
       });
     }
