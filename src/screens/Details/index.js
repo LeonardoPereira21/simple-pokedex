@@ -35,7 +35,7 @@ const Details = ({
     const detailsUrl = route.params.url;
 
     setIsLoading(true);
-    pokemonService.getDetails(detailsUrl, (data) => {
+    pokemonService.get(detailsUrl, (data) => {
       setName(data.name);
       setOrder(data.order);
       setImage(data.sprites.other["official-artwork"]["front_default"]);
@@ -53,7 +53,7 @@ const Details = ({
 
   useEffect(() => {
     if (species) {
-      pokemonService.getSpecies(species, (data) => {
+      pokemonService.get(species, (data) => {
         setEggGroups(data.egg_groups);
         setIsLoading(false);
       });

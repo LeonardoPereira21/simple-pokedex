@@ -23,6 +23,7 @@ const SearchInput = ({ onChangeText, value }) => {
   return (
     <View style={styles.container}>
       <TextInput
+        testID={"seach-input"}
         style={styles.input}
         placeholder="Buscar"
         onChangeText={(value) => changeText(value)}

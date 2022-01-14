@@ -6,6 +6,11 @@ const styles = StyleSheet.create({
     paddingTop: SPACING.medium,
     paddingHorizontal: SPACING.xsmall,
   },
+  text: {
+    width: "100%",
+    textAlign: "center",
+    marginVertical: SPACING.large,
+  },
   pagination: {
     flexDirection: "row",
     paddingTop: SPACING.small,

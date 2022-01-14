@@ -24,6 +24,7 @@ exports[`SearchInput should render correctly 1`] = `
         "height": 40,
       }
     }
+    testID="seach-input"
     underlineColorAndroid="transparent"
     value=""
   />

@@ -9,6 +9,7 @@ import CardList from "../../components/CardList";
 import Container from "../../components/Container";
 import SearchInput from "../../components/SearchInput";
 import Loading from "../../components/Loading";
+import Text from "../../components/Text";
 
 import styles from "./styles";
 
@@ -29,9 +30,8 @@ const Home = ({ navigation }) => {
     setIsLoading(true);
     setSearchText("");
 
-    pokemonService.getList(url, (data) => {
+    pokemonService.get(url, (data) => {
       setIsLoading(false);
-
       setCurrentPage(data.results);
       setPokemonList(data.results);
       setPreviousPage(data.previous);
@@ -71,18 +71,22 @@ const Home = ({ navigation }) => {
 
       {!isLoading ? (
         <CardList>
-          {pokemonList.length
-            ? pokemonList.map((item, index) => (
-                <Card
-                  key={index}
-                  name={item.name}
-                  url={item.url}
-                  onPressButton={() => {
-                    goToDetails(item.url);
-                  }}
-                />
-              ))
-            : null}
+          {pokemonList.length ? (
+            pokemonList.map((item, index) => (
+              <Card
+                key={index}
+                name={item.name}
+                url={item.url}
+                onPressButton={() => {
+                  goToDetails(item.url);
+                }}
+              />
+            ))
+          ) : (
+            <Text style={styles.text}>
+              Ops, não encontramos nenhum Pokémon :(
+            </Text>
+          )}
         </CardList>
       ) : (
         <Loading />

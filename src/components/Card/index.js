@@ -8,7 +8,7 @@ import styles from "./styles";
 
 const Card = ({ image, name, onPressButton }) => {
   return (
-    <View style={styles.container}>
+    <View testID="card" style={styles.container}>
       <View style={styles.content}>
         {image ? (
           <Image

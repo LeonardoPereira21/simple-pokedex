@@ -8,6 +8,7 @@ exports[`Card should render correctly 1`] = `
       "width": "33.3%",
     }
   }
+  testID="card"
 >
   <View
     style={
