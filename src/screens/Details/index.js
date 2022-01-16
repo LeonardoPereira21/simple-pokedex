@@ -12,7 +12,6 @@ import Checkbox from "../../components/Checkbox";
 import Loading from "../../components/Loading";
 import Text from "../../components/Text";
 
-import { DETAILS } from "./__mocks__";
 import styles from "./styles";
 
 const Details = ({
@@ -55,7 +54,7 @@ const Details = ({
   useEffect(() => {
     if (species) {
       pokeApi.get(species, (data) => {
-        setEggGroups(DETAILS.data.egg_groups);
+        setEggGroups(data.egg_groups);
         setIsLoading(false);
       });
     }
