@@ -3,7 +3,7 @@ import { SPACING, COLORS, BORDER_RADIUS } from "../../services/styles";
 
 const styles = StyleSheet.create({
   container: {
-    width: "33.3%",
+    width: "50%",
     padding: SPACING.xsmall,
   },
   content: {
@@ -18,8 +18,8 @@ const styles = StyleSheet.create({
     marginBottom: SPACING.xsmall,
   },
   image: {
-    width: 35,
-    height: 35,
+    width: 80,
+    height: 80,
   },
 });
 

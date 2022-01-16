@@ -13,26 +13,27 @@ import Text from "../../components/Text";
 
 import styles from "./styles";
 
-const FIRST_PAGE = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=42";
+const FIRST_PAGE = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=10";
 
 const Home = ({ navigation }) => {
   const [searchText, setSearchText] = useState("");
 
-  const [currentPage, setCurrentPage] = useState([]);
+  const [currentPage, setCurrentPage] = useState(null);
   const [pokemonList, setPokemonList] = useState([]);
 
   const [nextPage, setNextPage] = useState(null);
 
   const [previousPage, setPreviousPage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [timer, setTimer] = useState()
 
   const updatePage = (url) => {
     setIsLoading(true);
     setSearchText("");
+    setCurrentPage(url);
 
     pokeApi.get(url, (data) => {
       setIsLoading(false);
-      setCurrentPage(data.results);
       setPokemonList(data.results);
       setPreviousPage(data.previous);
       setNextPage(data.next);
@@ -43,29 +44,48 @@ const Home = ({ navigation }) => {
     updatePage(FIRST_PAGE);
   }, []);
 
+  useEffect(() => {
+    handleTimer();
+  }, [searchText]);
+
+  const handleSearch = () => {
+    if (currentPage) {
+      if (!searchText) {
+        updatePage(currentPage)
+      } else {
+        pokeApi.get(
+          `https://pokeapi.co/api/v2/pokemon/${searchText.toLowerCase()}`,
+          (data) => {
+            setPokemonList([{ name: data.species.name, url: `https://pokeapi.co/api/v2/pokemon/${data.id}` }])
+          },
+          () => {
+            setPokemonList([])
+          })
+      }
+    }
+
+  }
+
+  const handleTimer = () => {
+    clearTimeout(timer)
+    setTimer(setTimeout(handleSearch, 800))
+  }
+
   const goToDetails = (url) =>
     navigation.navigate("Details", {
       url,
     });
 
-  const search = (text) => {
+  const handleChangeSearch = (text) => {
     setSearchText(text);
-
-    const listFiltered = currentPage.filter(
-      (item) => item.name.toLowerCase().indexOf(text.toLowerCase()) !== -1
-    );
-
-    setPokemonList(listFiltered);
   };
-
+  console.log({ pokemonList })
   return (
     <Container pageTitle={"home"}>
       <View style={styles.search}>
         <SearchInput
           value={searchText}
-          onChangeText={(text) => {
-            search(text);
-          }}
+          onChangeText={handleChangeSearch}
         />
       </View>
 
@@ -75,6 +95,7 @@ const Home = ({ navigation }) => {
             pokemonList.map((item, index) => (
               <Card
                 key={index}
+                image={item.image}
                 name={item.name}
                 url={item.url}
                 onPressButton={() => {
