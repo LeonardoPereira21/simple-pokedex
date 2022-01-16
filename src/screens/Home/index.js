@@ -79,7 +79,7 @@ const Home = ({ navigation }) => {
   const handleChangeSearch = (text) => {
     setSearchText(text);
   };
-  console.log({ pokemonList })
+  
   return (
     <Container pageTitle={"home"}>
       <View style={styles.search}>
