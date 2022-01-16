@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   },
   button: {
     position: "absolute",
-    top: Platform.OS === "ios" ? 40 : SPACING.large,
+    top: Platform.OS === "ios" ? 50 : SPACING.large,
     left: SPACING.medium,
   },
   icon: { width: 15, height: 15 },

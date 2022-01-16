@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { COLORS, FONT_SIZES, SPACING } from "../../services/styles";
+import { COLORS, FONT_SIZES, SPACING, BORDER_RADIUS} from "../../services/styles";
 
 const styles = StyleSheet.create({
   details: {
@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     marginVertical: SPACING.medium,
     backgroundColor: COLORS.BLUE,
     borderColor: COLORS.YELLOW,
-    borderWidth: 5,
+    borderWidth: 6,
   },
   image: {
     width: 300,
