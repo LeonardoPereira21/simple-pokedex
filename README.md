@@ -44,3 +44,4 @@ Executa os testes disponíveis.
 
 # Authors
 * **Leonardo Pereira**
+![image](https://user-images.githubusercontent.com/56491521/229940082-b28a1698-49af-4a43-8c90-a94d92067534.png)
